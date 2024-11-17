@@ -6,19 +6,19 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule, FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
-import { BranchService } from '../../../services/branches/branch.service'
-import { BranchI } from '../../../models/branch';
+import { ServicelI } from '../../../../models/logistic';
+import { ServicelService } from '../../../../services/logistics/servicel.service';
 
 @Component({
-  selector: 'app-create-branch',
+  selector: 'app-create-service',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ToastModule, CardModule, ButtonModule],
-  templateUrl: './create-branch.component.html',
-  styleUrl: './create-branch.component.css'
+  templateUrl: './create-service.component.html',
+  styleUrl: './create-service.component.css'
 })
-export class CreateBranchComponent implements OnInit{
+export class CreateServiceComponent implements OnInit{
   public form: FormGroup;
-  branchService = inject(BranchService);
+  servicelService = inject(ServicelService);
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,8 +26,8 @@ export class CreateBranchComponent implements OnInit{
   ) 
   { 
     this.form=this.formBuilder.group({
-    nameB: ['', [Validators.required]],
-    location: ['', [Validators.required]],
+    transportation: ['', [Validators.required]],
+    cost: ['', [Validators.required]],
 
   });
   }
@@ -37,9 +37,9 @@ export class CreateBranchComponent implements OnInit{
   }
 
   onSubmit(): void {
-    const formValue: BranchI = this.form.value;
+    const formValue: ServicelI = this.form.value;
     console.log(formValue);
-    this.branchService.createBranch(formValue).subscribe(
+    this.servicelService.createServicel(formValue).subscribe(
       () => {
         // console.log('Se ha creado correctamente');
 
@@ -48,7 +48,7 @@ export class CreateBranchComponent implements OnInit{
 
     //  }, 0);
     console.log(formValue)
-        this.router.navigateByUrl('branch/show');
+        this.router.navigateByUrl('logistics/servicel/show');
 
       },
       err => {
@@ -60,12 +60,11 @@ export class CreateBranchComponent implements OnInit{
   }
 
   cancel() {
-    this.router.navigateByUrl('/branch/show');
+    this.router.navigateByUrl('/logistics/servicel/show');
   }
 
-  get nameB() { return this.form.get('nameB'); }
+  get transportation() { return this.form.get('transportation'); }
 
-  get location() { return this.form.get('location'); }
-  
+  get cost() { return this.form.get('cost'); }
 
 }

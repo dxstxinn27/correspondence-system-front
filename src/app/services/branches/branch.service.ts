@@ -17,9 +17,9 @@ export class BranchService {
 
   getAllBranch(): Observable<BranchI[]> {
     return this.http
-      .get<{ branches: BranchI[] }>(this.base_path) // Asegúrate de que coincida con la estructura de la respuesta
+      .get<{ branches: BranchI[] }>(this.base_path)
       .pipe(
-        map(response => response.branches) // Extrae el array de sucursales
+        map(response => response.branches) 
       );
   }
 
@@ -27,7 +27,7 @@ export class BranchService {
     return this.http
       .get<{ branch: BranchI }>(`${this.base_path}${id}`)
       .pipe(
-        map(response => response.branch) // Extrae el objeto 'branch'
+        map(response => response.branch)
       );
   }
 

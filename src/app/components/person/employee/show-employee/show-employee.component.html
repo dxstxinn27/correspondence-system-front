@@ -1,15 +1,15 @@
 <p-card class="w-12 h-full">
     <ng-template pTemplate="header">
       <div class="flex justify-content-between flex-wrap">
-        <h3 class="ml-4">Branches</h3>
+        <h3 class="ml-4">Employees</h3>
         <div class="mt-2 mr-2">
           <a
             pButton
             pRipple
-            label="Add Branch"
+            label="Add Employee"
             icon="pi pi-user-plus"
             class="bg-cyan-600"
-            [routerLink]="['/branch/new']"
+            [routerLink]="['/persons/employee/new']"
           >
           </a>
         </div>
@@ -17,19 +17,23 @@
     </ng-template>
   
     <p>
-      <p-table [value]="branches">
+      <p-table [value]="employees">
         <ng-template pTemplate="header">
           <tr>
             <th>Name</th>
-            <th>Location</th>
+            <th>Position</th>
+            <th>Branch</th>
+            <th>Assigned Route</th>
             <th class="flex justify-content-center flex-wrap">Actions</th>
           </tr>
         </ng-template>
   
-        <ng-template pTemplate="body" let-branch>
+        <ng-template pTemplate="body" let-employee>
           <tr>
-            <td>{{ branch.nameB }}</td>
-            <td>{{ branch.location }}</td>
+            <td>{{ employee.fullname }}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.branch }}</td>
+            <td>{{ employee.assignedRoute }}</td>
             <td>
               <button
                 pButton
@@ -45,7 +49,7 @@
                 icon="pi pi-sync"
                 severity="warning"
                 class="mr-1"
-                [routerLink]="['/branch/edit', branch.id]"
+                [routerLink]="['/persons/employee/edit', employee.id]"
               >
               </a>
   
@@ -55,7 +59,7 @@
                 severity="danger"
                 icon="pi pi-eraser"
                 class="mr-1"
-                (click)="delete(branch.id)"
+                (click)="delete(employee.id)"
               >
               </button>
             </td>

@@ -1,6 +1,6 @@
 export interface TransportI {
     id?: number;
-    transportation: 'PLANE' | 'TRUCK' | 'MOTORBIKE'; // Usamos un tipo de unión para los valores fijos
+    transportation: 'PLANE' | 'TRUCK' | 'MOTORBIKE';
     capacity: number;
 }
 
@@ -8,13 +8,12 @@ export interface RouteI {
     id?: number;
     origin: string;
     destination: string;
-    stops?: string | null; // "stops" es opcional ya que puede ser null
-    transports: TransportI[]; // Relación de muchos a muchos representada como un array de Transport
+    stops?: string | null;
+    transports: TransportI[];
 }
   
 export interface ServicelI {
-    transportation: 'EXPRESS' | 'NORMAL'; // Usamos un tipo de unión para los valores fijos
+    id?: number;
+    transportation: 'EXPRESS' | 'NORMAL';
     cost: number;
 }
-  
-  
