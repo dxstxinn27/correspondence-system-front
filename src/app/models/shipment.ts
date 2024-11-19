@@ -4,6 +4,7 @@ import { EmployeeI } from './person'
 import { BranchI } from './branch';
 
 export interface CorrespondenceI {
+    id?: number;
     code: string;
     correspondenceType: string;
     weight: number;
@@ -26,6 +27,7 @@ export function generateTrackingCode(): string {
 }
 
 export interface ShippingI {
+    id?: number;
     status: 'AT ORIGIN' | 'AT DESTINATION' | 'ON THE WAY' | 'DELIVERED';  // Estado del envío
     dateTime: Date;  // Fecha y hora del envío
     correspondence: CorrespondenceI;  // Referencia a la correspondencia
@@ -34,6 +36,7 @@ export interface ShippingI {
 }
 
 export interface IncidentI {
+    id?: number;
     description: string;  // Descripción del incidente
     incidentDate: Date;  // Fecha del incidente
     resolutionStatus: 'REPORTED' | 'SCALED' | 'IN RESOLUTION' | 'RESOLVED' | 'CLOSED';  // Estado de resolución del incidente

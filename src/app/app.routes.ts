@@ -17,6 +17,15 @@ import { UpdateCustomerComponent } from './components/person/customer/update-cus
 import { ShowEmployeeComponent } from './components/person/employee/show-employee/show-employee.component';
 import { CreateEmployeeComponent } from './components/person/employee/create-employee/create-employee.component';
 import { UpdateEmployeeComponent } from './components/person/employee/update-employee/update-employee.component';
+import { ShowCorrespondenceComponent } from './components/shipment/correspondence/show-correspondence/show-correspondence.component';
+import { CreateCorrespondenceComponent } from './components/shipment/correspondence/create-correspondence/create-correspondence.component';
+import { UpdateCorrespondenceComponent } from './components/shipment/correspondence/update-correspondence/update-correspondence.component';
+import { ShowIncidentComponent } from './components/shipment/incident/show-incident/show-incident.component';
+import { CreateIncidentComponent } from './components/shipment/incident/create-incident/create-incident.component';
+import { UpdateIncidentComponent } from './components/shipment/incident/update-incident/update-incident.component';
+import { ShowShippingComponent } from './components/shipment/shipping/show-shipping/show-shipping.component';
+import { CreateShippingComponent } from './components/shipment/shipping/create-shipping/create-shipping.component';
+import { UpdateShippingComponent } from './components/shipment/shipping/update-shipping/update-shipping.component';
 
 export const routes: Routes = [
     // Branch routes
@@ -50,4 +59,20 @@ export const routes: Routes = [
     { path: "persons/employee/show", component: ShowEmployeeComponent },
     { path: "persons/employee/new", component: CreateEmployeeComponent },
     { path: "persons/employee/edit/:id", component: UpdateEmployeeComponent },
+
+    // SHIPMENT
+    // Correspondence
+    { path: "shipments/correspondence/show", component: ShowCorrespondenceComponent},
+    { path: "shipments/correspondence/new", component: CreateCorrespondenceComponent},
+    { path: "shipments/correspondence/edit/:id", component: UpdateCorrespondenceComponent},
+
+    // Incident
+    { path: "shipments/incident/show", component: ShowIncidentComponent},
+    { path: "shipments/incident/new", component: CreateIncidentComponent},
+    { path: "shipments/incident/edit/:id", component: UpdateIncidentComponent},
+
+    // Shipping
+    { path: "shipments/shipping/show", component: ShowShippingComponent},
+    { path: "shipments/shipping/new", component: CreateShippingComponent},
+    { path: "shipments/shipping/edit/:id", component: UpdateShippingComponent},
 ];
